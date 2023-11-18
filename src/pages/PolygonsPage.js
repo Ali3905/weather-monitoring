@@ -24,13 +24,14 @@ const PolygonsPage = () => {
       getPolygons()
     }, [])
   return (
-    <div>
+    <div className='px-16 py-4 flex flex-col items-start bg-black min-h-screen text-white'>
       {/* polygons a rahe hain sbr kro create to kro */}
-        <button onClick={()=>navigate("/createpolygon")} className='bg-black text-white p-4 roumd'>Create Polygon</button>
-      <div className='border-t border-gray-400'>
+        <button onClick={()=>navigate("/createpolygon")} className='bg-[#21ecf3] text-black p-4 roumd block self-end'>Create Polygon</button>
+        <h2 className='font-bold text-3xl'>Polygons</h2>
+      <div className='border-t border-gray-400 mt-4 w-full'>
         {
           polygons !== null && polygons.map((ele)=>{
-            return <div className='flex gap-5 p-4 border-b border-gray-400 cursor-pointer hover:bg-gray-100' onClick={()=>setPolygon(ele)}> 
+            return <div className='flex gap-5 p-4 border-b border-x border-gray-400 cursor-pointer hover:bg-[#21ecf3]' onClick={()=>setPolygon(ele)}> 
               <p>{ele.name}</p>
               <p>{ele.area} ha</p>
               {/* <p>{ele.}</p> */}

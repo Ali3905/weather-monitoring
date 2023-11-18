@@ -75,11 +75,11 @@ const PolygonForm = () => {
   };
 
   return (
-    <form className="flex flex-col items-center" onSubmit={createPolygon}>
+    <form className="flex flex-col items-center bg-black min-h-screen text-white " onSubmit={createPolygon}>
       <input
         type="text"
         placeholder="Name of Polygon"
-        className="border border-black p-2 m-2"
+        className="border border-black p-2 m-2 rounded-sm text-black"
         onChange={(e) => setPolygon({ ...polygon, name: e.target.value })}
       />
       <p>
@@ -91,14 +91,14 @@ const PolygonForm = () => {
           type="number"
           step="any"
           placeholder="latitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(0, e.target.value, 0)}
         />
         <input
           type="number"
           step="any"
           placeholder="Longitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(0, e.target.value, 1)}
         />
       </span>
@@ -107,14 +107,14 @@ const PolygonForm = () => {
           type="number"
           step="any"
           placeholder="latitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(1, e.target.value, 0)}
         />
         <input
           type="number"
           step="any"
           placeholder="Longitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(1, e.target.value, 1)}
         />
       </span>
@@ -123,14 +123,14 @@ const PolygonForm = () => {
           type="number"
           step="any"
           placeholder="latitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(2, e.target.value, 0)}
         />
         <input
           type="number"
           step="any"
           placeholder="Longitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(2, e.target.value, 1)}
         />
       </span>
@@ -139,14 +139,14 @@ const PolygonForm = () => {
           type="number"
           step="any"
           placeholder="latitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(3, e.target.value, 0)}
         />
         <input
           type="number"
           step="any"
           placeholder="Longitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(3, e.target.value, 1)}
         />
       </span>
@@ -155,19 +155,19 @@ const PolygonForm = () => {
           type="number"
           step="any"
           placeholder="latitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(4, e.target.value, 0)}
         />
         <input
           type="number"
           step="any"
           placeholder="Longitude"
-          className="border border-black p-2 m-2"
+          className="border border-black p-2 m-2 rounded-sm text-black"
           onChange={(e) => handleLongitudeChange(4, e.target.value, 1)}
         />
       </span>
           <p>{message}</p>
-      <button type="submit" className="bg-black text-white p-2">
+      <button type="submit" className="bg-[#21ecf3] text-black p-2">
         Create Polygon
       </button>
     </form>

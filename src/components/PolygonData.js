@@ -39,7 +39,9 @@ const PolygonData = ({polygon}) => {
     }, [polygon])
 
   return (
-    <div className='mt-8 flex gap-5'>
+    <div className='mt-8 flex flex-col gap-5'>
+      <h2 className='font-bold text-2xl'>{polygon.name}</h2>
+      <div className='flex gap-5'>
       {soilData !== null && <div className='border border-gray-400 p-4'>
         <p className='text-base font-bold'>Soil Data</p>
       <p> Moisture : {soilData.moisture}</p>
@@ -58,6 +60,7 @@ const PolygonData = ({polygon}) => {
       <p> Wind Speed : {weatherData.wind.speed} meter per second</p>
       <p> Wind Direction : {weatherData.wind.deg} degrees</p>
       </div>}
+      </div>
     </div>
   )
 }
