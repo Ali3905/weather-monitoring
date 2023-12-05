@@ -42,7 +42,7 @@ const PolygonForm = () => {
       console.log(polygon);
        const res = await axios({
       method: "post",
-      url: "http://api.agromonitoring.com/agro/1.0/polygons?appid=39616ee7914d351dca20ec8e000b1b64",
+      url: "http://api.agromonitoring.com/agro/1.0/polygons?appid=778761e9e8a810e53ab4c02784115c3d",
       data: {
         name: polygon.name,
         geo_json: {
@@ -63,8 +63,28 @@ const PolygonForm = () => {
           created_at : res.data.created_at,
           polygon_id : res.data.id,
           lat : res.data.center[0],
-          long : res.data.center[1],
-      })
+          long : res.data.center[1],  
+          // lats : res.data.geo_json.geometry.coordinates.map((ele, i)=>{ return {
+          //   `lat${i+1}` : ele[1]
+          // } })
+          lats: polygon.cordinates.map((ele, i)=>{
+            console.log(ele[0]);
+            return {
+              [i] : ele[0]
+            }
+          }),
+          longs: polygon.cordinates.map((ele, i)=>{
+            console.log(ele[1]);
+            return {
+              [i] : ele[1]
+            }
+          }),
+        })
+        console.log(doc);
+        // const cordinates = res.data.geo_json.geometry.coordinates
+        // const ab = await db.collection('polygons').add({
+        // });
+        // console.log("ab", ab);
   
   } catch (error) {
       setMessage("Error Occured")

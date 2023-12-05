@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Map from './MapComponent'
 
 const PolygonData = ({polygon}) => {
     const [soilData, setSoilData] = useState(null)
@@ -9,7 +10,7 @@ const PolygonData = ({polygon}) => {
     const getSoilData = async() => {
         const res = await axios({
             method : "get",
-            url : `http://api.agromonitoring.com/agro/1.0/soil?polyid=${polygon.polygon_id}&appid=39616ee7914d351dca20ec8e000b1b64`,
+            url : `http://api.agromonitoring.com/agro/1.0/soil?polyid=${polygon.polygon_id}&appid=778761e9e8a810e53ab4c02784115c3d`,
             
         })
         setSoilData(res.data)
@@ -17,7 +18,7 @@ const PolygonData = ({polygon}) => {
     const getUVIData = async() => {
         const res = await axios({
             method : "get",
-            url : `http://api.agromonitoring.com/agro/1.0/uvi?polyid=${polygon.polygon_id}&appid=39616ee7914d351dca20ec8e000b1b64`,
+            url : `http://api.agromonitoring.com/agro/1.0/uvi?polyid=${polygon.polygon_id}&appid=778761e9e8a810e53ab4c02784115c3d`,
             
         })
         setUVIData(res.data)
@@ -25,7 +26,7 @@ const PolygonData = ({polygon}) => {
     const getWeatherData = async() => {
         const res = await axios({
             method : "get",
-            url : `https://api.agromonitoring.com/agro/1.0/weather?lat=${polygon.lat}&lon=${polygon.long}&appid=39616ee7914d351dca20ec8e000b1b64`,
+            url : `https://api.agromonitoring.com/agro/1.0/weather?lat=${polygon.lat}&lon=${polygon.long}&appid=778761e9e8a810e53ab4c02784115c3d`,
             
         })
         console.log(res);
@@ -39,9 +40,11 @@ const PolygonData = ({polygon}) => {
     }, [polygon])
 
   return (
-    <div className='mt-8 flex flex-col gap-5'>
+    <div className='mt-8 flex flex-col gap-5 w-full'>
       <h2 className='font-bold text-2xl'>{polygon.name}</h2>
-      <div className='flex gap-5'>
+      <div className='map_data_grid gap-4 w-full'>
+        <Map polygon={polygon}/>
+        <div className='flex flex-col gap-5'>
       {soilData !== null && <div className='border border-gray-400 p-4'>
         <p className='text-base font-bold'>Soil Data</p>
       <p> Moisture : {soilData.moisture}</p>
@@ -60,6 +63,7 @@ const PolygonData = ({polygon}) => {
       <p> Wind Speed : {weatherData.wind.speed} meter per second</p>
       <p> Wind Direction : {weatherData.wind.deg} degrees</p>
       </div>}
+      </div>
       </div>
     </div>
   )
